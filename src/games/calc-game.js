@@ -18,16 +18,10 @@ export default class CalcGame {
     const b = rand(min, max);
     const oper = randOper();
 
-    if (oper === '+') {
-      this.curQuestion.question = `${a} + ${b}`;
-      this.curQuestion.trueAnsw = a + b;
-    } else if (oper === '-') {
-      this.curQuestion.question = `${a} - ${b}`;
-      this.curQuestion.trueAnsw = a - b;
-    } else {
-      this.curQuestion.question = `${a} * ${b}`;
-      this.curQuestion.trueAnsw = a * b;
-    }
+    this.curQuestion.question = `${a} ${oper} ${b}`;
+    if (oper === '+') this.curQuestion.trueAnsw = a + b;
+    else if (oper === '-') this.curQuestion.trueAnsw = a - b;
+    else this.curQuestion.trueAnsw = a * b;
 
     return this.curQuestion;
   }
