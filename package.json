@@ -1,6 +1,6 @@
 {
   "name": "brain-games-poletay",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "lvl-01-project",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,8 @@
   ],
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
-    "brain-even": "dist/bin/brain-even.js"
+    "brain-even": "dist/bin/brain-even.js",
+    "brain-calc": "dist/bin/brain-calc.js"
   },
   "dependencies": {
     "readline-sync": "^1.4.7"
