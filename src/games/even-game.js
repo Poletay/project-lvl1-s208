@@ -8,9 +8,7 @@ export default class EvenGame {
       trueAnsw: '',
     };
   }
-  getCondition() {
-    return this.condition;
-  }
+
   getNewQuestion() {
     const a = rand();
     this.curQuestion.question = a;

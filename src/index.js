@@ -1,11 +1,13 @@
 import EvenGame from './games/even-game';
 import CalcGame from './games/calc-game';
+import GcdGame from './games/gcd-game';
 import { ask, write } from './lib/gameUI';
 
 // get game logic
 const getGame = (gameName) => {
   if (gameName === 'brain-even') return new EvenGame();
   if (gameName === 'brain-calc') return new CalcGame();
+  if (gameName === 'brain-gcd') return new GcdGame();
   return null;
 };
 

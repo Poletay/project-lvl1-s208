@@ -8,9 +8,7 @@ export default class CalcGame {
       trueAnsw: '',
     };
   }
-  getCondition() {
-    return this.condition;
-  }
+
   getNewQuestion() {
     const min = 1;
     const max = 10;
