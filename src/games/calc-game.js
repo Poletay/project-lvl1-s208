@@ -1,26 +1,22 @@
 import { rand, randOper } from '../lib/usfulFuncs';
 
-export default class CalcGame {
-  constructor() {
-    this.condition = 'What is the result of the expression?';
-    this.curQuestion = {
-      question: '',
-      trueAnsw: '',
-    };
-  }
+export const condition = 'What is the result of the expression?';
 
-  getNewQuestion() {
-    const min = 1;
-    const max = 10;
-    const a = rand(min, max);
-    const b = rand(min, max);
-    const oper = randOper();
+export default () => {
+  const min = 1;
+  const max = 10;
+  const a = rand(min, max);
+  const b = rand(min, max);
+  const oper = randOper();
+  const curQuestion = {
+    question: '',
+    trueAnsw: '',
+  };
 
-    this.curQuestion.question = `${a} ${oper} ${b}`;
-    if (oper === '+') this.curQuestion.trueAnsw = a + b;
-    else if (oper === '-') this.curQuestion.trueAnsw = a - b;
-    else this.curQuestion.trueAnsw = a * b;
+  curQuestion.question = `${a} ${oper} ${b}`;
+  if (oper === '+') curQuestion.trueAnsw = a + b;
+  else if (oper === '-') curQuestion.trueAnsw = a - b;
+  else curQuestion.trueAnsw = a * b;
 
-    return this.curQuestion;
-  }
-}
+  return curQuestion;
+};

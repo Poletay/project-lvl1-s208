@@ -1,23 +1,19 @@
 import { rand, gcd } from '../lib/usfulFuncs';
 
-export default class GcdGame {
-  constructor() {
-    this.condition = 'Find the greatest common divisor of given numbers';
-    this.curQuestion = {
-      question: '',
-      trueAnsw: '',
-    };
-  }
+export const condition = 'Find the greatest common divisor of given numbers';
 
-  getNewQuestion() {
-    const min = 1;
-    const max = 100;
-    const a = rand(min, max);
-    const b = rand(min, max);
+export default () => {
+  const min = 1;
+  const max = 100;
+  const a = rand(min, max);
+  const b = rand(min, max);
+  const curQuestion = {
+    question: '',
+    trueAnsw: '',
+  };
 
-    this.curQuestion.question = `${a} ${b}`;
-    this.curQuestion.trueAnsw = gcd(a, b);
+  curQuestion.question = `${a} ${b}`;
+  curQuestion.trueAnsw = gcd(a, b);
 
-    return this.curQuestion;
-  }
-}
+  return curQuestion;
+};

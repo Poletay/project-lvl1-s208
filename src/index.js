@@ -1,20 +1,29 @@
-import EvenGame from './games/even-game';
-import CalcGame from './games/calc-game';
-import GcdGame from './games/gcd-game';
+import evenGame, { condition as evenCond } from './games/even-game';
+import calcGame, { condition as calcCond } from './games/calc-game';
+import gcdGame, { condition as gcdCond } from './games/gcd-game';
 import { ask, write } from './lib/gameUI';
 
 // get game logic
 const getGame = (gameName) => {
-  if (gameName === 'brain-even') return new EvenGame();
-  if (gameName === 'brain-calc') return new CalcGame();
-  if (gameName === 'brain-gcd') return new GcdGame();
+  if (gameName === 'brain-even') {
+    write(evenCond);
+    return evenGame;
+  }
+  if (gameName === 'brain-calc') {
+    write(calcCond);
+    return calcGame;
+  }
+  if (gameName === 'brain-gcd') {
+    write(gcdCond);
+    return gcdGame;
+  }
   return null;
 };
 
 // run game
 const runGame = (game, rounds) => {
   if (rounds < 1) return true;
-  const question = game.getNewQuestion();
+  const question = game();
   const answ = ask(`Question: ${question.question}\nYour answer: `);
   if (String(answ) !== String(question.trueAnsw)) {
     write(`'${answ}' is wrong answer ;(. Correct answer was '${question.trueAnsw}'`);
@@ -32,7 +41,6 @@ export default (gameName) => {
   const userName = ask('May I have your name? ');
   write(`Hello, '${userName}!`);
   if (game !== null) {
-    write(game.condition);
     const gameResult = runGame(game, rounds);
     if (gameResult) write(`Congratulations, ${userName}!`);
     else write(`Let's try again, ${userName}!`);
