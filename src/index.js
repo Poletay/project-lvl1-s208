@@ -1,29 +1,4 @@
-import evenGame, { condition as evenCond } from './games/even-game';
-import calcGame, { condition as calcCond } from './games/calc-game';
-import gcdGame, { condition as gcdCond } from './games/gcd-game';
-import balanceGame, { condition as balanceCond } from './games/balance-game';
 import { ask, write } from './lib/gameUI';
-
-// get game logic
-const getGame = (gameName) => {
-  if (gameName === 'brain-even') {
-    write(evenCond);
-    return evenGame;
-  }
-  if (gameName === 'brain-calc') {
-    write(calcCond);
-    return calcGame;
-  }
-  if (gameName === 'brain-gcd') {
-    write(gcdCond);
-    return gcdGame;
-  }
-  if (gameName === 'brain-balance') {
-    write(balanceCond);
-    return balanceGame;
-  }
-  return null;
-};
 
 // run game
 const runGame = (game, rounds) => {
@@ -39,15 +14,12 @@ const runGame = (game, rounds) => {
 };
 
 // maim process
-export default (gameName) => {
+export default (game, rounds, condition) => {
   write('Welcome to the Brain Games!');
-  const rounds = 3;
-  const game = getGame(gameName);
+  write(condition);
   const userName = ask('May I have your name? ');
   write(`Hello, '${userName}!`);
-  if (game !== null) {
-    const gameResult = runGame(game, rounds);
-    if (gameResult) write(`Congratulations, ${userName}!`);
-    else write(`Let's try again, ${userName}!`);
-  }
+  const gameResult = runGame(game, rounds);
+  if (gameResult) write(`Congratulations, ${userName}!`);
+  else write(`Let's try again, ${userName}!`);
 };

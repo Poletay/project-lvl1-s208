@@ -1,6 +1,8 @@
 import { rand } from '../lib/usfulFuncs';
+import runGame from '..';
 
-export const condition = 'Balance the given number.';
+const condition = 'Balance the given number.';
+const rounds = 3;
 
 const getSum = num => String(num).split('').reduce((acc, item) => acc + Number(item), 0);
 
@@ -29,7 +31,7 @@ const getBalance = (num) => {
   return makeBalance(mid, difference, numLength);
 };
 
-export default () => {
+const balanceGame = () => {
   const min = 1;
   const max = 10000;
   const a = rand(min, max);
@@ -43,3 +45,5 @@ export default () => {
 
   return curQuestion;
 };
+
+export default () => runGame(balanceGame, rounds, condition);
