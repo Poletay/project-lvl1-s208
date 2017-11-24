@@ -1,6 +1,7 @@
 import evenGame, { condition as evenCond } from './games/even-game';
 import calcGame, { condition as calcCond } from './games/calc-game';
 import gcdGame, { condition as gcdCond } from './games/gcd-game';
+import balanceGame, { condition as balanceCond } from './games/balance-game';
 import { ask, write } from './lib/gameUI';
 
 // get game logic
@@ -16,6 +17,10 @@ const getGame = (gameName) => {
   if (gameName === 'brain-gcd') {
     write(gcdCond);
     return gcdGame;
+  }
+  if (gameName === 'brain-balance') {
+    write(balanceCond);
+    return balanceGame;
   }
   return null;
 };
