@@ -1,8 +1,10 @@
 import { rand, randOper } from '../lib/usfulFuncs';
+import runGame from '..';
 
-export const condition = 'What is the result of the expression?';
+const condition = 'What is the result of the expression?';
+const rounds = 3;
 
-export default () => {
+const calcGame = () => {
   const min = 1;
   const max = 10;
   const a = rand(min, max);
@@ -20,3 +22,5 @@ export default () => {
 
   return curQuestion;
 };
+
+export default () => runGame(calcGame, rounds, condition);

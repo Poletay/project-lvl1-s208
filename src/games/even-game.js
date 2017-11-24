@@ -1,8 +1,10 @@
 import { rand, isEval } from '../lib/usfulFuncs';
+import runGame from '..';
 
-export const condition = 'Answer "yes" if number even otherwise answer "no".';
+const condition = 'Answer "yes" if number even otherwise answer "no".';
+const rounds = 3;
 
-export default () => {
+const evenGame = () => {
   const a = rand();
   const curQuestion = {
     question: '',
@@ -12,3 +14,5 @@ export default () => {
   curQuestion.trueAnsw = isEval(a) ? 'yes' : 'no';
   return curQuestion;
 };
+
+export default () => runGame(evenGame, rounds, condition);

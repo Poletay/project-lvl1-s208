@@ -1,8 +1,10 @@
 import { rand, gcd } from '../lib/usfulFuncs';
+import runGame from '..';
 
-export const condition = 'Find the greatest common divisor of given numbers';
+const condition = 'Find the greatest common divisor of given numbers';
+const rounds = 3;
 
-export default () => {
+const gcdGame = () => {
   const min = 1;
   const max = 100;
   const a = rand(min, max);
@@ -17,3 +19,5 @@ export default () => {
 
   return curQuestion;
 };
+
+export default () => runGame(gcdGame, rounds, condition);
