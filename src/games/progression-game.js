@@ -4,30 +4,33 @@ import runGame from '..';
 const condition = 'What number is missing in this progression?';
 const rounds = 3;
 
-const getLine = (start, step, counter = 10, line = []) => {
-  if (counter < 1) return line;
+const makeProgressionEl = (firstEl, step, elementNumber) => firstEl + ((elementNumber - 1) * step);
 
-  const currentNumber = start + step;
-  const newLine = line;
-  newLine.push(currentNumber);
-
-  return getLine(currentNumber, step, counter - 1, line);
+const makeQuestion = (firstEl, step, missStep, counter = 1, question = '') => {
+  if (counter > 10) return question;
+  const newEl = counter === missStep ? '..' : makeProgressionEl(firstEl, step, counter);
+  const newQuestion = `${question} ${newEl}`;
+  return makeQuestion(firstEl, step, missStep, counter + 1, newQuestion);
 };
 
+
 const progressionGame = () => {
-  const start = rand(1, 10);
-  const step = rand(1, 10);
-  const missStep = rand(1, 10) - 1;
-  const line = getLine(start, step);
-  const questionLine = line.slice();
+  const randomMin = 1;
+  const numberOfElements = 10;
+  const firstEl = rand(randomMin, numberOfElements);
+  const step = rand(randomMin, numberOfElements);
+  const missStep = rand(randomMin, numberOfElements);
+
+  const question = makeQuestion(firstEl, step, missStep);
+  const trueAnsw = makeProgressionEl(firstEl, step, missStep);
+
   const curQuestion = {
     question: '',
     trueAnsw: '',
   };
 
-  questionLine[missStep] = '..';
-  curQuestion.question = questionLine.join(' ');
-  curQuestion.trueAnsw = line[missStep];
+  curQuestion.question = question;
+  curQuestion.trueAnsw = trueAnsw;
   return curQuestion;
 };
 
