@@ -14,7 +14,8 @@ const runGame = (game, rounds) => {
 };
 
 // maim process
-export default (game, rounds, condition) => {
+export default (game, condition) => {
+  const rounds = 3;
   write('Welcome to the Brain Games!');
   write(condition);
   const userName = ask('May I have your name? ');

@@ -3,7 +3,6 @@ import runGame from '..';
 
 const condition = 'Answer "yes" if number even otherwise answer "no".';
 const questionText = 'Question:';
-const rounds = 3;
 
 const evenGame = () => {
   const a = rand();
@@ -16,4 +15,4 @@ const evenGame = () => {
   return curQuestion;
 };
 
-export default () => runGame(evenGame, rounds, condition);
+export default () => runGame(evenGame, condition);

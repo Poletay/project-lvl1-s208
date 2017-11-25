@@ -3,7 +3,6 @@ import runGame from '..';
 
 const condition = 'What is the result of the expression?';
 const questionText = 'Question:';
-const rounds = 3;
 
 const calcGame = () => {
   const min = 1;
@@ -24,4 +23,4 @@ const calcGame = () => {
   return curQuestion;
 };
 
-export default () => runGame(calcGame, rounds, condition);
+export default () => runGame(calcGame, condition);

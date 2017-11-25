@@ -3,7 +3,6 @@ import runGame from '..';
 
 const condition = 'Balance the given number.';
 const questionText = 'Question:';
-const rounds = 3;
 
 const getSum = num => String(num).split('').reduce((acc, item) => acc + Number(item), 0);
 
@@ -47,4 +46,4 @@ const balanceGame = () => {
   return curQuestion;
 };
 
-export default () => runGame(balanceGame, rounds, condition);
+export default () => runGame(balanceGame, condition);

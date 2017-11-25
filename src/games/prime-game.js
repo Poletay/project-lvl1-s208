@@ -3,7 +3,6 @@ import runGame from '..';
 
 const condition = 'Answer "yes" if number prime otherwise answer "no".';
 const questionText = 'Is this number prime?';
-const rounds = 3;
 
 const isPrime = (num, divider = 2) => {
   if (divider === num) return true;
@@ -26,4 +25,4 @@ const primeGame = () => {
   return curQuestion;
 };
 
-export default () => runGame(primeGame, rounds, condition);
+export default () => runGame(primeGame, condition);

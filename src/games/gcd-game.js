@@ -3,7 +3,6 @@ import runGame from '..';
 
 const condition = 'Find the greatest common divisor of given numbers';
 const questionText = 'Question:';
-const rounds = 3;
 
 const gcdGame = () => {
   const min = 1;
@@ -21,4 +20,4 @@ const gcdGame = () => {
   return curQuestion;
 };
 
-export default () => runGame(gcdGame, rounds, condition);
+export default () => runGame(gcdGame, condition);

@@ -3,7 +3,6 @@ import runGame from '..';
 
 const condition = 'What number is missing in this progression?';
 const questionText = 'Question:';
-const rounds = 3;
 
 const makeProgressionEl = (firstEl, step, elementNumber) => firstEl + ((elementNumber - 1) * step);
 
@@ -35,4 +34,4 @@ const progressionGame = () => {
   return curQuestion;
 };
 
-export default () => runGame(progressionGame, rounds, condition);
+export default () => runGame(progressionGame, condition);
