@@ -1,7 +1,8 @@
 import { rand } from '../lib/usfulFuncs';
 import runGame from '..';
 
-const condition = 'Answer "yes" if number even otherwise answer "no".';
+const condition = 'Answer "yes" if number prime otherwise answer "no".';
+const questionText = 'Is this number prime?';
 const rounds = 3;
 
 const isPrime = (num, divider = 2) => {
@@ -20,7 +21,7 @@ const primeGame = () => {
     trueAnsw: '',
   };
 
-  curQuestion.question = question;
+  curQuestion.question = `${questionText} ${question}`;
   curQuestion.trueAnsw = trueAnsw;
   return curQuestion;
 };

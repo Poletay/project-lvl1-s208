@@ -4,7 +4,7 @@ import { ask, write } from './lib/gameUI';
 const runGame = (game, rounds) => {
   if (rounds < 1) return true;
   const question = game();
-  const answ = ask(`Question: ${question.question}\nYour answer: `);
+  const answ = ask(`${question.question}\nYour answer: `);
   if (String(answ) !== String(question.trueAnsw)) {
     write(`'${answ}' is wrong answer ;(. Correct answer was '${question.trueAnsw}'`);
     return false;

@@ -2,6 +2,7 @@ import { rand } from '../lib/usfulFuncs';
 import runGame from '..';
 
 const condition = 'Balance the given number.';
+const questionText = 'Question:';
 const rounds = 3;
 
 const getSum = num => String(num).split('').reduce((acc, item) => acc + Number(item), 0);
@@ -40,7 +41,7 @@ const balanceGame = () => {
     trueAnsw: '',
   };
 
-  curQuestion.question = a;
+  curQuestion.question = `${questionText} ${a}`;
   curQuestion.trueAnsw = getBalance(a);
 
   return curQuestion;

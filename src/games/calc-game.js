@@ -2,6 +2,7 @@ import { rand, randOper } from '../lib/usfulFuncs';
 import runGame from '..';
 
 const condition = 'What is the result of the expression?';
+const questionText = 'Question:';
 const rounds = 3;
 
 const calcGame = () => {
@@ -18,7 +19,7 @@ const calcGame = () => {
   curQuestion.question = `${a} ${oper} ${b}`;
   if (oper === '+') curQuestion.trueAnsw = a + b;
   else if (oper === '-') curQuestion.trueAnsw = a - b;
-  else curQuestion.trueAnsw = a * b;
+  else curQuestion.trueAnsw = `${questionText} ${a * b}`;
 
   return curQuestion;
 };

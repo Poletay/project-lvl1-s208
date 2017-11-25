@@ -2,6 +2,7 @@ import { rand } from '../lib/usfulFuncs';
 import runGame from '..';
 
 const condition = 'What number is missing in this progression?';
+const questionText = 'Question:';
 const rounds = 3;
 
 const makeProgressionEl = (firstEl, step, elementNumber) => firstEl + ((elementNumber - 1) * step);
@@ -21,7 +22,7 @@ const progressionGame = () => {
   const step = rand(randomMin, numberOfElements);
   const missStep = rand(randomMin, numberOfElements);
 
-  const question = makeQuestion(firstEl, step, missStep);
+  const question = `${questionText} ${makeQuestion(firstEl, step, missStep)}`;
   const trueAnsw = makeProgressionEl(firstEl, step, missStep);
 
   const curQuestion = {

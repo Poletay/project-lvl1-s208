@@ -2,6 +2,7 @@ import { rand, gcd } from '../lib/usfulFuncs';
 import runGame from '..';
 
 const condition = 'Find the greatest common divisor of given numbers';
+const questionText = 'Question:';
 const rounds = 3;
 
 const gcdGame = () => {
@@ -14,7 +15,7 @@ const gcdGame = () => {
     trueAnsw: '',
   };
 
-  curQuestion.question = `${a} ${b}`;
+  curQuestion.question = `${questionText} ${a} ${b}`;
   curQuestion.trueAnsw = gcd(a, b);
 
   return curQuestion;
